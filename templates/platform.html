@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="platform-hero">
+    <div class="viewfinder" style="margin-top: 100px;">
+        <h1 class="hero-title">Our <span>Platform</span></h1>
+        <p class="hero-tagline">A Comprehensive Vision for Indiana University's Future</p>
+    </div>
+</section>
+
+<section class="platform-section">
+    <div class="platform-container">
+        <div class="platform-intro">
+            <h2>ACTION 2025-2026 Platform</h2>
+            <p>Our comprehensive platform outlines our vision and concrete plans for improving student life at Indiana University. Read through our detailed proposals for enhancing campus safety, fostering community engagement, and ensuring student success.</p>
+        </div>
+        
+        <div class="platform-viewer">
+            <div class="film-corner top-left"></div>
+            <div class="film-corner bottom-right"></div>
+            <span class="recording-dot"></span>
+            <iframe 
+                src="{{ url_for('static', filename='documents/ACTION 2025-2026 Official Platform Draft.pdf') }}#toolbar=0&navpanes=0&scrollbar=1&view=FitH"
+                type="application/pdf"
+                frameborder="0"
+                width="100%"
+                height="100%"
+                style="overflow: auto; -webkit-overflow-scrolling: touch;"
+                allowfullscreen
+                webkitallowfullscreen
+                mozallowfullscreen
+            ></iframe>
+        </div>
+    </div>
+</section>
+{% endblock %} 

@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block head %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+{% endblock %}
+
 {% block content %}
 <section class="hero">
     <div class="viewfinder" style="margin-top: 100px;">
@@ -47,12 +51,28 @@
                 <div class="film-corner top-left"></div>
                 <div class="film-corner bottom-right"></div>
                 <span class="recording-dot"></span>
-                <div class="photo-placeholder">Photo Coming Soon</div>
+                <img src="{{ url_for('static', filename='images/zach goldberg.png') }}" alt="Zach Goldberg" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div class="candidate-info">
-                <h3>Zach Goldberg</h3>
-                <h4>Presidential Candidate</h4>
-                <p>A dedicated student leader with a passion for creating meaningful change, Zach brings a wealth of experience in student advocacy and organizational leadership. His vision for IU focuses on enhancing student resources, promoting inclusive policies, and building stronger connections within our campus community.</p>
+                <div class="candidate-header">
+                    <h3>Zach Goldberg</h3>
+                    <h4>|</h4>
+                    <h4>Presidential Candidate</h4>
+                </div>
+                <div class="bio-content">
+                    <p>Hi, I'm Zachary Goldberg from Long Grove, IL! I am a student at Indiana University's Kelley School of Business, pursuing a degree in Finance, Law Ethics & Decision Making, and Business Analytics. My passion for leadership, advocacy, and innovation has defined my experience at IU, and I am committed to driving meaningful change on campus and beyond.</p>
+                    
+                    <p><strong>Chief Director of Federal Relations – Indiana University Student Government</strong><br>
+                    In my role with IUSG, I manage relations between IU and federal government entities, advocating for key student initiatives such as Pell Grants, food security, and anti-hazing policies. I work closely with the IU Office of Federal Relations and congressional offices to ensure student voices are heard at the highest levels.</p>
+                    
+                    <p><strong>Corporate Law Club – President</strong><br>
+                    As President of the Corporate Law Club, I lead a team of directors to organize engaging events, guest speaker sessions, and discussions on corporate law topics. My goal is to foster a community of students passionate about legal studies and professional development in the legal and business sectors.</p>
+                    
+                    <p><strong>Generative AI & LLMs in Business Club – Director of Operations</strong><br>
+                    In this role, I help organize events focused on artificial intelligence and machine learning for a growing student community. By leveraging technology and innovative strategies, I work to enhance engagement and awareness of AI's role in the future of business.</p>
+                    
+                    <p class="bio-vision">I believe in the power of collaboration and bold leadership to create opportunities for all students. Through my work in student government, law, and technology, I am committed to making IU a place where every student's voice matters and every opportunity is within reach.</p>
+                </div>
             </div>
         </div>
 
@@ -61,22 +81,25 @@
                 <div class="film-corner top-left"></div>
                 <div class="film-corner bottom-right"></div>
                 <span class="recording-dot"></span>
-                <div class="photo-placeholder">Photo Coming Soon</div>
+                <img src="{{ url_for('static', filename='images/avasmith.png') }}" alt="Ava Smith" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div class="candidate-info">
-                <h3>Ava Smith</h3>
-                <h4>Vice Presidential Candidate</h4>
+                <div class="candidate-header">
+                    <h3>Ava Smith</h3>
+                    <h4>|</h4>
+                    <h4>Vice Presidential Candidate</h4>
+                </div>
                 <div class="bio-content">
                     <p>Hi, I'm Ava Smith from Chatham, NJ! I am a student at Indiana University, majoring in Healthcare Management and Policy with a minor in Human Resources. My passion for leadership and service has shaped my time at IU, and I'm committed to making a difference both on campus and beyond.</p>
                     
                     <p><strong>O'Neill School Ambassador</strong><br>
-                    As an ambassador for the O'Neill School of Public and Environmental Affairs, I guide prospective students by giving tours, leading information sessions, and supporting their transition to IU.</p>
+                    As an ambassador for the O'Neill School of Public and Environmental Affairs, I have the privilege of guiding prospective students through their journey to IU. Whether leading campus tours, hosting information sessions, or offering personalized support, I strive to make their transition as smooth and welcoming as possible.</p>
                     
                     <p><strong>IUDM Hospital Relations Committee</strong><br>
-                    My involvement with IUDM (Indiana University Dance Marathon) allows me to directly support Riley Hospital for Children, a cause close to my heart.</p>
+                    Through my involvement with IUDM (Indiana University Dance Marathon), I have the opportunity to directly support Riley Hospital for Children—a cause deeply close to my heart. By helping to raise awareness and funds, I am committed to making a meaningful impact on the lives of children and families in need.</p>
                     
                     <p><strong>Alpha Gamma Delta</strong><br>
-                    I'm also a proud member of Alpha Gamma Delta sorority, where I contribute to fighting hunger both nationally and locally through efforts like volunteering at the Hoosier Hills Food Bank in Bloomington.</p>
+                    As a proud member of Alpha Gamma Delta, I am dedicated to the fight against hunger on both local and national levels. From volunteering at the Hoosier Hills Food Bank in Bloomington to supporting broader initiatives, I am passionate about service and making a tangible difference in the community.</p>
                     
                     <p class="bio-vision">I believe in the power of collective action to improve lives, and I'm excited to bring that same energy and drive to the ACTION campaign. Together, we can make IU a campus where every voice is heard, every student is supported, and every opportunity is within reach.</p>
                 </div>
@@ -88,10 +111,10 @@
 <section id="sign" class="sign-section">
     <div class="sign-container">
         <h2>Support Our Campaign</h2>
-        <p class="sign-description">By signing with your IU email, you're helping Zachary Goldberg and Ava Smith's ticket run in the IUSG 2025 election.</p>
-        <form id="signForm" action="/sign" method="POST" class="sign-form">
+        <p class="sign-description">By signing with your IU email, you're allowing limited communication from Action</p>
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSejI95dgKo-5c_y9XZBi-6DsErS-iDqBmcwg7bwjfq95YmUaA/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;" class="sign-form">
             <div class="form-group">
-                <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@iu\.edu$" required placeholder="Your IU Email">
+                <input type="email" id="email" name="entry.903932446" pattern="[a-zA-Z0-9._%+-]+@iu\.edu$" required placeholder="Your IU Email">
                 <button type="submit" class="cta-button">Sign Now <span class="recording-dot"></span></button>
             </div>
             <p class="form-note">* Only @iu.edu email addresses are accepted</p>
@@ -99,4 +122,35 @@
     </div>
 </section>
 
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='#sign';alert('Thank you for your support!');}"></iframe>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+var submitted = false;
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+
+        // Close menu when clicking a link
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+    }
+});
+</script>
 {% endblock %} 

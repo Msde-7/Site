@@ -440,6 +440,10 @@ nav {
     border-top: none;
 }
 
+.feature-card:hover .film-corner {
+    opacity: 0.6;
+}
+
 footer {
     display: block;
     background-color: #1a1a1a;
@@ -709,7 +713,6 @@ footer {
 @media (max-width: 1024px) {
     .pillar-content {
         flex-direction: column;
-        padding: 2rem;
     }
     
     .action-points {
@@ -1179,102 +1182,117 @@ footer {
 
 .candidates-container {
     display: flex;
-    justify-content: center;
-    gap: 6rem;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3rem;
+    align-items: center;
+    width: 100%;
     max-width: 1400px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .candidate-card {
-    flex: 1;
-    max-width: 600px;
-    background-color: rgba(255, 255, 255, 0.03);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: transform 0.3s;
-}
-
-.candidate-card:hover {
-    transform: translateY(-5px);
+    display: flex;
+    gap: 3rem;
+    background: transparent;
+    padding: 0;
+    width: 90%;
+    max-width: 1400px;
+    transition: transform 0.3s ease;
 }
 
 .candidate-photo {
+    flex: 0 0 300px;
     height: 400px;
-    background-color: rgba(255, 255, 255, 0.05);
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.2);
 }
 
-.photo-placeholder {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 1.2rem;
+.candidate-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.candidate-card:hover .candidate-photo img {
+    transform: scale(1.05);
 }
 
 .candidate-info {
-    padding: 3rem;
-    text-align: left;
+    flex: 1;
+    padding: 2rem;
+    background: var(--card-background);
+    border-radius: 12px;
 }
 
-.candidate-info h3 {
+.candidate-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.candidate-header h3, 
+.candidate-header h4 {
     color: var(--accent-color);
     font-size: 2.2rem;
-    margin-bottom: 0.5rem;
-}
-
-.candidate-info h4 {
-    color: var(--primary-color);
-    font-size: 1.4rem;
-    margin-bottom: 2rem;
+    margin: 0;
     font-weight: 500;
 }
 
 .bio-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    max-width: 800px;
+    text-align: left;
 }
 
 .bio-content p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    text-align: left;
 }
 
 .bio-content strong {
     color: var(--accent-color);
     font-size: 1.2rem;
-    display: inline-block;
-    margin-bottom: 0.5rem;
+    display: block;
+    margin-bottom: 0.2rem;
 }
 
 .bio-vision {
-    margin-top: 1rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Light mode styles for bio */
-body.light-mode .bio-vision {
-    border-top-color: rgba(0, 0, 0, 0.1);
+.candidate-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-@media (max-width: 768px) {
-    .candidate-info {
-        padding: 2rem;
+.candidate-card:hover .candidate-photo img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+    .candidate-header {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.8rem;
+        text-align: center;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    .bio-content {
-        gap: 1.2rem;
-    }
-
-    .bio-content p {
-        font-size: 1rem;
-    }
-
-    .bio-content strong {
-        font-size: 1.1rem;
+    .candidate-header h3, 
+    .candidate-header h4 {
+        font-size: 1.8rem;
     }
 }
 
@@ -1704,7 +1722,6 @@ body.light-mode footer {
 }
 
 body.light-mode .feature-card,
-body.light-mode .candidate-card,
 body.light-mode .story-box,
 body.light-mode .commitment-box,
 body.light-mode .difference-card,
@@ -1713,6 +1730,23 @@ body.light-mode .action-oval {
     background-color: rgba(255, 255, 255, 0.95);
     color: #333333;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Update candidate card styling for light mode */
+body.light-mode .candidate-card {
+    background: transparent;
+    box-shadow: none;
+}
+
+body.light-mode .candidate-info {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+}
+
+body.light-mode .candidate-photo {
+    background: transparent;
+    box-shadow: none;
 }
 
 /* Text colors in light mode */
@@ -1815,127 +1849,287 @@ body.light-mode .pillar-image {
 /* Mobile Navigation Styles */
 @media screen and (max-width: 768px) {
     nav {
-        padding: 0.8rem 1rem;
-        background-color: rgba(51, 51, 51, 0.95) !important;
+        padding: 0.5rem 1rem;
     }
 
     .brand {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        flex: 1;
-        max-width: calc(100% - 120px); /* Leave space for nav-right */
-    }
-
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
+        gap: 0.3rem;
     }
 
     .logo img {
         height: 40px;
-        margin-right: 0;
-    }
-
-    .brand-text {
-        font-size: 1.4rem;
-    }
-
-    .menu-toggle {
-        display: block;
-        padding: 0.5rem;
-        margin-left: 0.5rem;
-        position: relative;
-        z-index: 102;
-    }
-
-    .nav-right {
-        margin-left: 0;
-        padding-right: 0;
-    }
-
-    .nav-sign-button {
-        font-size: 1.1rem;
-        padding: 0.7rem 1.5rem;
-        padding-right: 2.2rem;
-    }
-}
-
-@media screen and (max-width: 380px) {
-    .brand {
-        max-width: calc(100% - 100px);
-    }
-
-    .logo img {
-        height: 35px;
+        margin-right: 0.3rem;
     }
 
     .brand-text {
         font-size: 1.2rem;
     }
 
-    .menu-toggle {
-        padding: 0.4rem;
-        margin-left: 0.3rem;
+    /* Adjust nav-right spacing and layout */
+    .nav-right {
+        gap: 1rem;
+        padding-right: 0;
+        margin-left: 1rem;
+        display: flex;
+        align-items: center;
     }
 
+    /* Adjust mobile sign now button */
     .nav-sign-button {
         font-size: 0.9rem;
-        padding: 0.6rem 1.2rem;
-        padding-right: 1.8rem;
-    }
-}
-
-/* Small phones */
-@media screen and (max-width: 380px) {
-    .hero h1,
-    .who-hero h1,
-    .fight-hero h1,
-    .difference-hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero .tagline,
-    .who-hero .tagline,
-    .fight-hero .tagline,
-    .difference-hero .tagline {
-        font-size: 1.1rem;
-        padding: 0 1rem;
-    }
-
-    .nav-sign-button {
-        font-size: 0.85rem;
-        padding: 0.5rem 1rem;
-        padding-right: 1.8rem;
+        padding: 0.6rem 1.5rem;
+        padding-right: 2.3rem;
     }
 
     .nav-sign-button .recording-dot {
-        right: 0.6rem;
+        width: 6px;
+        height: 6px;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
     }
-}
 
-/* Mobile Navigation Styles */
-@media screen and (max-width: 768px) {
+    .theme-toggle {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    .hero {
+        min-height: 100vh;
+        padding: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-tagline {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+
+    .viewfinder {
+        margin-top: 60px !important;
+        padding: 1rem;
+    }
+
+    .features {
+        padding: 3rem 1rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+        margin: 1rem 0;
+    }
+
+    .feature-card h2 {
+        font-size: 1.8rem;
+    }
+
+    .candidates-container {
+        padding: 1rem;
+    }
+
+    .candidate-card {
+        flex-direction: column;
+        margin: 1rem -1rem;  /* Negative margin to extend background */
+        padding: 1rem;
+        width: calc(100% + 2rem);  /* Extend width to account for padding */
+    }
+
+    .candidate-info {
+        width: calc(100% + 2rem);
+        margin: 0 -1rem;  /* Negative margin to extend background */
+        padding: 1rem;
+        background: var(--card-background);
+    }
+
+    .candidate-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .candidate-header h4 {
+        display: none;
+    }
+
+    .sign-section {
+        padding: 3rem 1rem;
+    }
+
+    .sign-container {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .form-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .sign-form input[type="email"] {
+        width: 100%;
+        margin-right: 0;
+        font-size: 1rem;
+        padding: 0.8rem 1rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    /* Adjust recording bar text for mobile */
     .recording-bar {
-        top: 80px;
-        padding: 0 60px;
-    }
-
-    .recording-text {
-        font-size: 0.8rem;
-    }
-}
-
-/* Small phones */
-@media screen and (max-width: 380px) {
-    .recording-bar {
-        top: 75px;
-        padding: 0 40px;
+        top: 0;
+        padding: 0 20px;
     }
 
     .recording-text {
         font-size: 0.75rem;
+        margin-top: 5px;
+    }
+
+    /* Keep existing viewfinder corner styles */
+    .viewfinder-corner {
+        width: 30px;
+        height: 30px;
+        border-width: 2px;
+    }
+
+    .corner-tl {
+        top: 80px;
+        left: 15px;
+    }
+
+    .corner-tr {
+        top: 80px;
+        right: 15px;
+    }
+
+    .corner-bl {
+        bottom: 15px;
+        left: 15px;
+    }
+
+    .corner-br {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .viewfinder-center {
+        width: 8px;
+        height: 8px;
+        border-width: 1px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .logo img {
+        height: 35px;
+    }
+
+    .brand-text {
+        font-size: 1.1rem;
+    }
+
+    .nav-sign-button {
+        font-size: 0.8rem;
+        padding: 0.5rem 1.3rem;
+        padding-right: 2rem;
+    }
+
+    .nav-sign-button .recording-dot {
+        right: 0.8rem;
+    }
+
+    .theme-toggle {
+        width: 28px;
+        height: 28px;
+        font-size: 0.9rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
+    }
+
+    .feature-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .candidate-photo {
+        height: 250px;
+    }
+
+    .sign-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .sign-description {
+        font-size: 0.9rem;
+    }
+
+    /* Keep existing small screen viewfinder corner styles */
+    .viewfinder-corner {
+        width: 25px;
+        height: 25px;
+    }
+
+    .corner-tl {
+        top: 70px;
+        left: 10px;
+    }
+
+    .corner-tr {
+        top: 70px;
+        right: 10px;
+    }
+
+    .corner-bl {
+        bottom: 10px;
+        left: 10px;
+    }
+
+    .corner-br {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .viewfinder-center {
+        width: 6px;
+        height: 6px;
+    }
+
+    .recording-text {
+        font-size: 0.7rem;
+        margin-top: 3px;
+    }
+}
+
+/* Touch Target Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .cta-button,
+    .nav-sign-button,
+    .desktop-link,
+    input[type="email"],
+    .theme-toggle {
+        min-height: 44px;
+        padding: 12px 20px;
+    }
+
+    .feature-card,
+    .candidate-card {
+        cursor: default;
     }
 }
 
@@ -1963,46 +2157,81 @@ body.light-mode .menu-toggle:hover {
 }
 
 @media screen and (max-width: 768px) {
-    .brand {
-        gap: 0.5rem;
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(51, 51, 51, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 99;
+        padding: 2rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
     }
 
-    .logo img {
-        height: 50px;
-        margin-right: 0.5rem;
+    .nav-links.active {
+        display: flex;
+        transform: translateX(0);
     }
 
-    .brand-text {
-        font-size: 1.4rem;
+    .desktop-link {
+        font-size: 1.5rem;
+        margin: 1rem 0;
+        padding: 1rem;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
+    /* Hide the hamburger menu */
     .menu-toggle {
-        display: block;
+        display: none;
+    }
+
+    /* Make the brand clickable for mobile menu */
+    .brand {
+        cursor: pointer;
+        user-select: none;
         padding: 0.5rem;
-        margin-left: 0.5rem;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+    .brand:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Adjust mobile sign now button */
+    .nav-sign-button {
+        font-size: 1rem;
+        padding: 0.7rem 2rem;
+        padding-right: 2.8rem;
+    }
+
+    .nav-sign-button .recording-dot {
+        width: 8px;
+        height: 8px;
+        right: 1.2rem;
+        top: 50%;
+        transform: translateY(-50%);
     }
 }
 
 @media screen and (max-width: 380px) {
-    .logo img {
-        height: 40px;
-        margin-right: 0.3rem;
+    .nav-sign-button {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.8rem;
+        padding-right: 2.5rem;
     }
 
-    .brand-text {
-        font-size: 1.2rem;
+    .nav-sign-button .recording-dot {
+        right: 1rem;
     }
-}
-
-body.light-mode .menu-toggle {
-    background-color: transparent;
-    color: #000000;
-    box-shadow: none;
-}
-
-body.light-mode .menu-toggle:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    color: #000000;
 }
 
 /* Mobile Dropdown Styles */
@@ -2064,4 +2293,199 @@ body.light-mode .menu-toggle:hover {
 .hero-subtext {
     font-size: 0.9rem;
     margin-top: 0.5rem;
+}
+
+.platform-hero {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+                url('../images/clapperboard.jpg') center center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+    padding: 0;
+}
+
+.platform-section {
+    background-color: #1a1a1a;
+    padding: 6rem 2rem;
+    color: white;
+}
+
+.platform-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.platform-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.platform-intro h2 {
+    color: var(--primary-color);
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.platform-intro h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.platform-intro p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.platform-viewer {
+    position: relative;
+    background: var(--card-background);
+    border-radius: 12px;
+    padding: 1rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 800px;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.platform-viewer iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: white;
+    border-radius: 8px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.platform-viewer .film-corner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--accent-color);
+    opacity: 0.8;
+    z-index: 2;
+}
+
+.platform-viewer .film-corner.top-left {
+    top: 15px;
+    left: 15px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.platform-viewer .film-corner.bottom-right {
+    bottom: 15px;
+    right: 15px;
+    border-left: none;
+    border-top: none;
+}
+
+.platform-viewer .recording-dot {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 12px;
+    height: 12px;
+    background-color: #ff3b30;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@media (max-width: 768px) {
+    .platform-section {
+        padding: 4rem 1rem;
+    }
+
+    .platform-intro h2 {
+        font-size: 2.5rem;
+    }
+
+    .platform-intro p {
+        font-size: 1.1rem;
+    }
+
+    .platform-viewer {
+        padding: 0.5rem;
+        margin: 0 -1rem;
+        width: calc(100% + 2rem);
+        height: 500px;
+        border-radius: 0;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .platform-viewer iframe {
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media (max-width: 380px) {
+    .platform-viewer {
+        height: 400px;
+    }
+}
+
+/* Touch Target Optimizations */
+/* Light mode platform styles */
+body.light-mode .platform-section {
+    background-color: #f2f2f2;
+}
+
+body.light-mode .platform-intro h2 {
+    color: var(--primary-color);
+}
+
+body.light-mode .platform-intro p {
+    color: #333333;
+}
+
+body.light-mode .platform-viewer {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .platform-viewer iframe {
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .cta-button,
+    .nav-sign-button,
+    .desktop-link,
+    input[type="email"],
+    .theme-toggle {
+        min-height: 44px;
+        padding: 12px 20px;
+    }
+
+    .feature-card,
+    .candidate-card {
+        cursor: default;
+    }
 }

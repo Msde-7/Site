@@ -19,5 +19,9 @@ def goals():
 def difference():
     return render_template('difference.html')
 
+@app.route('/platform')
+def platform():
+    return render_template('platform.html')
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000, host='0.0.0.0') 
