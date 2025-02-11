@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="viewfinder" style="margin-top: 100px;">
+        <h1 class="hero-title"><span>Action</span> Starts Here</h1>
+        <p class="hero-tagline" style="margin-top: 0.5rem;">Building a Better Future for Indiana University Through Student Innovation and Advocacy</p>
+        <a href="#vision" class="cta-button">Lights. Camera. Action! <span class="recording-dot"></span></a>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature-row" id="vision">
+        <div class="feature-card">
+            <span class="action-dot"></span>
+            <div class="film-corner top-left"></div>
+            <div class="film-corner bottom-right"></div>
+            <h2>Vision</h2>
+            <p>To create a connected and supportive Indiana University community where every student feels valued, protected, and equipped with the tools to excel academically, socially, and personally while championing equity, sustainability, and innovation.</p>
+        </div>
+    </div>
+    <div class="feature-row">
+        <div class="feature-card">
+            <span class="action-dot"></span>
+            <div class="film-corner top-left"></div>
+            <div class="film-corner bottom-right"></div>
+            <h2>Mission</h2>
+            <p>To foster a safe, inclusive, and thriving campus environment by advocating for student-focused initiatives, enhancing transparency, and empowering every student to succeed through innovative policies and community engagement.</p>
+        </div>
+    </div>
+    <div class="feature-row">
+        <div class="feature-card">
+            <span class="action-dot"></span>
+            <div class="film-corner top-left"></div>
+            <div class="film-corner bottom-right"></div>
+            <h2>Impact</h2>
+            <p>The ACTION administration focuses on creating a transparent, inclusive, and engaging student government at Indiana University. Their platform is built on three pillars: Safety, Community, and Success, with additional miscellaneous initiatives. These policies aim to enhance campus safety, mental health, inclusivity, academic resources, and sustainability while fostering a strong sense of community and student engagement.</p>
+        </div>
+    </div>
+</section>
+
+<section id="candidates" class="ticket-section">
+    <h2>Meet Your Candidates</h2>
+    <div class="candidates-container">
+        <div class="candidate-card">
+            <div class="candidate-photo">
+                <div class="film-corner top-left"></div>
+                <div class="film-corner bottom-right"></div>
+                <span class="recording-dot"></span>
+                <div class="photo-placeholder">Photo Coming Soon</div>
+            </div>
+            <div class="candidate-info">
+                <h3>Zach Goldberg</h3>
+                <h4>Presidential Candidate</h4>
+                <p>A dedicated student leader with a passion for creating meaningful change, Zach brings a wealth of experience in student advocacy and organizational leadership. His vision for IU focuses on enhancing student resources, promoting inclusive policies, and building stronger connections within our campus community.</p>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-photo">
+                <div class="film-corner top-left"></div>
+                <div class="film-corner bottom-right"></div>
+                <span class="recording-dot"></span>
+                <div class="photo-placeholder">Photo Coming Soon</div>
+            </div>
+            <div class="candidate-info">
+                <h3>Ava Smith</h3>
+                <h4>Vice Presidential Candidate</h4>
+                <div class="bio-content">
+                    <p>Hi, I'm Ava Smith from Chatham, NJ! I am a student at Indiana University, majoring in Healthcare Management and Policy with a minor in Human Resources. My passion for leadership and service has shaped my time at IU, and I'm committed to making a difference both on campus and beyond.</p>
+                    
+                    <p><strong>O'Neill School Ambassador</strong><br>
+                    As an ambassador for the O'Neill School of Public and Environmental Affairs, I guide prospective students by giving tours, leading information sessions, and supporting their transition to IU.</p>
+                    
+                    <p><strong>IUDM Hospital Relations Committee</strong><br>
+                    My involvement with IUDM (Indiana University Dance Marathon) allows me to directly support Riley Hospital for Children, a cause close to my heart.</p>
+                    
+                    <p><strong>Alpha Gamma Delta</strong><br>
+                    I'm also a proud member of Alpha Gamma Delta sorority, where I contribute to fighting hunger both nationally and locally through efforts like volunteering at the Hoosier Hills Food Bank in Bloomington.</p>
+                    
+                    <p class="bio-vision">I believe in the power of collective action to improve lives, and I'm excited to bring that same energy and drive to the ACTION campaign. Together, we can make IU a campus where every voice is heard, every student is supported, and every opportunity is within reach.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="sign" class="sign-section">
+    <div class="sign-container">
+        <h2>Support Our Campaign</h2>
+        <p class="sign-description">By signing with your IU email, you're helping Zachary Goldberg and Ava Smith's ticket run in the IUSG 2025 election.</p>
+        <form id="signForm" action="/sign" method="POST" class="sign-form">
+            <div class="form-group">
+                <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@iu\.edu$" required placeholder="Your IU Email">
+                <button type="submit" class="cta-button">Sign Now <span class="recording-dot"></span></button>
+            </div>
+            <p class="form-note">* Only @iu.edu email addresses are accepted</p>
+        </form>
+    </div>
+</section>
+
+{% endblock %} 
