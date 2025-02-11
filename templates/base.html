@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Action Campaign{% endblock %}</title>
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Action Campaign - IU Student Government">
+    <meta property="og:description" content="Building a Better Future for Indiana University Through Student Innovation and Advocacy">
+    <meta property="og:image" content="{{ url_for('static', filename='images/ACTION Logo.png', _external=True) }}">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:type" content="website">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
